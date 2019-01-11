@@ -23,12 +23,13 @@ int main()
 	heap_add(heap, b);
 	heap_add(heap, c);
 	heap_add(heap, d);
-	int data[4] = {190, 70, 30, 10};
-	for (int i = 0; i < 4; ++i)
+	const int size = 4;
+	int data[] = { 190, 70, 30, 10 };
+	for (int i = 0; i < size ; ++i)
 	{
 		struct struct_a* item = heap_remove(heap);
-		const int compared = item->sort_param == data[i];
-		printf("%s \n", compared ? "TRUE" : "FALSE");
+		//const int compared = item->sort_param == data[i];
+		printf("Pop %f equals to %d \n", item->sort_param, data[i]);
 	}
 
 	heap_destroy(&heap, TRUE);

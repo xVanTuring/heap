@@ -50,7 +50,7 @@ extern "C" {
 
 extern HEAP* heap_create(int nalloc, int direction);
 
-extern void heap_destroy(HEAP** pheap, int freeflag);
+extern void heap_destroy(HEAP** pheap, const int freeflag);
 
 extern int heap_add(HEAP* heap, void* item);
 
