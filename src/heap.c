@@ -59,7 +59,7 @@ void heap_destroy(HEAP** pheap, const int freeflag)
 	}
 	if (freeflag)
 	{
-		for (int i = 0; i < heap->n; i++)
+		for (size_t i = 0; i < heap->n; i++)
 		{
 			free(heap->array[i]);
 		}
@@ -112,7 +112,7 @@ int heap_sort(HEAP* heap)
 	{
 		return 1;
 	}
-	for (int i = 0; i < heap->n; i++)
+	for (size_t i = 0; i < heap->n; i++)
 	{
 		heap_swap_up(heap, i);
 	}
@@ -152,7 +152,7 @@ int heap_sort_strict_order(HEAP* heap)
 }
 
 
-int heap_swap_up(HEAP* heap, int index)
+int heap_swap_up(HEAP* heap, size_t index)
 {
 	if (!heap)
 	{
@@ -164,7 +164,7 @@ int heap_swap_up(HEAP* heap, int index)
 	}
 	int ic = index + 1;
 	int ip;
-	float val_par, val_chd;
+	size_t val_par, val_chd;
 	if (heap->direction == SORT_INCREASING)
 	{
 		while (1)
@@ -172,8 +172,8 @@ int heap_swap_up(HEAP* heap, int index)
 			if (ic == 1)
 				break;
 			ip = ic / 2;
-			val_chd = *(float *)(heap->array[ic - 1]);
-			val_par = *(float *)(heap->array[ip - 1]);
+			val_chd = *(size_t *)(heap->array[ic - 1]);
+			val_par = *(size_t *)(heap->array[ip - 1]);
 			if (val_par <= val_chd)
 			{
 				break;
@@ -189,8 +189,8 @@ int heap_swap_up(HEAP* heap, int index)
 			if (ic == 1)
 				break;
 			ip = ic / 2;
-			val_chd = *(float *)(heap->array[ic - 1]);
-			val_par = *(float *)(heap->array[ip - 1]);
+			val_chd = *(size_t *)(heap->array[ic - 1]);
+			val_par = *(size_t *)(heap->array[ip - 1]);
 
 			if (val_par >= val_chd)
 			{
@@ -215,8 +215,8 @@ int heap_swap_down(HEAP* heap)
 		return 0;
 	}
 	int ip = 1;
-	int icr, icl;
-	float val_par, val_chd_lft, val_chd_rgt;
+	size_t icr, icl;
+	size_t val_par, val_chd_lft, val_chd_rgt;
 	if (heap->direction == SORT_INCREASING)
 	{
 		while (1)
@@ -224,8 +224,8 @@ int heap_swap_down(HEAP* heap)
 			icl = 2 * ip;
 			if (icl > heap->n)
 				break;
-			val_par = *(float *)(heap->array[ip - 1]);
-			val_chd_lft = *(float *)(heap->array[icl - 1]);
+			val_par = *(size_t *)(heap->array[ip - 1]);
+			val_chd_lft = *(size_t *)(heap->array[icl - 1]);
 			icr = icl + 1;
 			if (icr > heap->n)
 			{
@@ -237,7 +237,7 @@ int heap_swap_down(HEAP* heap)
 			else
 			{
 				/* both children exist; swap with the smallest if bigger */
-				val_chd_rgt = *(float *)(heap->array[icr - 1]);
+				val_chd_rgt = *(size_t *)(heap->array[icr - 1]);
 				if (val_par <= val_chd_lft && val_par <= val_chd_rgt) /* smaller than both */
 					break;
 				if (val_chd_lft <= val_chd_rgt)
@@ -262,8 +262,8 @@ int heap_swap_down(HEAP* heap)
 			icl = 2 * ip;
 			if (icl > heap->n)
 				break;
-			val_par = *(float *)(heap->array[ip - 1]);
-			val_chd_lft = *(float *)(heap->array[icl - 1]);
+			val_par = *(size_t *)(heap->array[ip - 1]);
+			val_chd_lft = *(size_t *)(heap->array[icl - 1]);
 			icr = icl + 1;
 			if (icr > heap->n)
 			{
@@ -275,7 +275,7 @@ int heap_swap_down(HEAP* heap)
 			else
 			{
 				/* both children exist; swap with the biggest if smaller */
-				val_chd_rgt = *(float *)(heap->array[icr - 1]);
+				val_chd_rgt = *(size_t *)(heap->array[icr - 1]);
 				if (val_par >= val_chd_lft && val_par >= val_chd_rgt) /* bigger than both */
 					break;
 				if (val_chd_lft >= val_chd_rgt)

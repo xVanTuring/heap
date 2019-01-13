@@ -36,8 +36,8 @@
 
 struct Heap
 {
-	int nalloc;
-	int n;
+	size_t nalloc;
+	size_t n;
 	void** array;
 	int direction;
 };
@@ -56,7 +56,7 @@ extern int heap_add(HEAP* heap, void* item);
 
 extern void* heap_remove(HEAP* heap);
 
-extern int heap_swap_up(HEAP* heap, int index);
+extern int heap_swap_up(HEAP* heap, size_t index);
 
 extern int heap_swap_down(HEAP* heap);
 
