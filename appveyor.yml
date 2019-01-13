@@ -1,0 +1,37 @@
+clone_folder: c:\projects\heap
+image:
+- Visual Studio 2017
+configuration:
+- Release
+platform:
+- x64
+environment:
+  matrix:
+  - arch: Win64
+matrix:
+  fast_finish: true
+init:
+- set arch=
+- if "%arch%"=="Win64" ( set arch= Win64)
+- echo %arch%
+- echo %APPVEYOR_BUILD_WORKER_IMAGE%
+- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
+- echo %generator%
+before_build:
+- ps: Add-Content .\CMakeLists.txt "add_subdirectory(test)"
+- ps: cat .\CMakeLists.txt
+- cmd: |-
+      cd build
+      cmake --version
+      cmake .. -G %generator%
+      
+build: 
+  project: c:\projects\heap\build\HEAP.sln
+  parallel: true
+before_test:
+- cmd: cd test
+test_script:
+- cmd: |-
+      .\Release\TestHeap.exe
+cache: 
+  - build

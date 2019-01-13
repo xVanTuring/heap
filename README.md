@@ -8,7 +8,7 @@
 #include "heap.h"
 struct struct_a
 {
-	float sort_param; // can be any name, but the type must be float, and at the first
+	size_t sort_param; // can be any name, but the type must be size_t, and at the first
 	int value;
 };
 
