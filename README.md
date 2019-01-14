@@ -1,7 +1,8 @@
 # Priority Queue
+[![Build status](https://ci.appveyor.com/api/projects/status/9chfnklkhxccltt1?svg=true)](https://ci.appveyor.com/project/xVanTuring/heap)
 
 ## LICENSE
-### Source code based on leptonica, with a few modifications.
+### Source code is based on leptonica, with a few modifications.
 
 ## Usage
 ``` c
