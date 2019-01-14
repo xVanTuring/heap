@@ -60,7 +60,7 @@ extern int heap_swap_up(HEAP* heap, size_t index);
 
 extern int heap_swap_down(HEAP* heap);
 
-extern int heap_get_count(HEAP* heap);
+extern size_t heap_get_count(HEAP* heap);
 
 extern int heap_sort(HEAP* heap);
 

@@ -119,7 +119,7 @@ int heap_sort(HEAP* heap)
 	return 0;
 }
 
-int heap_get_count(HEAP* heap)
+size_t heap_get_count(HEAP* heap)
 {
 	if (!heap)
 	{
@@ -130,12 +130,12 @@ int heap_get_count(HEAP* heap)
 
 int heap_sort_strict_order(HEAP* heap)
 {
-	int i;
+	size_t i;
 	if (!heap)
 	{
 		return 1;
 	}
-	const int size = heap->n;
+	const size_t size = heap->n;
 	for (i = 0; i < size; i++)
 	{
 		const int index = size - i;
@@ -162,7 +162,7 @@ int heap_swap_up(HEAP* heap, size_t index)
 	{
 		return 1;
 	}
-	int ic = index + 1;
+	size_t ic = index + 1;
 	int ip;
 	size_t val_par, val_chd;
 	if (heap->direction == SORT_INCREASING)
@@ -214,7 +214,7 @@ int heap_swap_down(HEAP* heap)
 	{
 		return 0;
 	}
-	int ip = 1;
+	size_t ip = 1;
 	size_t icr, icl;
 	size_t val_par, val_chd_lft, val_chd_rgt;
 	if (heap->direction == SORT_INCREASING)

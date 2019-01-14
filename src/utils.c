@@ -1,6 +1,6 @@
 #include "utils.h"
 
-void* re_alloc(void** p_in_data, int oldSize, int newSize)
+void* re_alloc(void** p_in_data, size_t oldSize, size_t newSize)
 {
 	void* new_data;
 	if (!p_in_data)

@@ -55,7 +55,7 @@ enum
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
-extern void* re_alloc(void**, int, int);
+extern void* re_alloc(void**, size_t, size_t);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
