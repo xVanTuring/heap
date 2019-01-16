@@ -1,5 +1,5 @@
-add_executable(TestHeap main.c)
+add_executable(TestHeap main.cc)
 
 include_directories(../src)
 target_link_libraries(TestHeap LibHeap)
-set_property(TARGET TestHeap PROPERTY C_STANDARD 11)
+set_property(TARGET TestHeap PROPERTY CXX_STANDARD 11)
