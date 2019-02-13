@@ -24,17 +24,13 @@
  -  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *====================================================================*/
 #ifndef UTILS_H
-#define  UTILS_H
+#define UTILS_H
 
-#include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-enum
-{
-	SORT_INCREASING = 1,
-	SORT_DECREASING = 2
-};
+enum { SORT_INCREASING = 1, SORT_DECREASING = 2 };
 #ifndef TRUE
 #define TRUE 1
 #endif // !TRUE
@@ -43,19 +39,18 @@ enum
 #define FALSE 0
 #endif // !FALSE
 
-
 #ifndef MIN
-#define MIN(x,y)   (((x) < (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #endif // !MIN
 
 #ifndef MAX
-#define MAX(x,y)   (((x) > (y)) ? (x) : (y))
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #endif // !MAX
 
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
-extern void* re_alloc(void**, size_t, size_t);
+extern void *re_alloc(void **, size_t, size_t);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

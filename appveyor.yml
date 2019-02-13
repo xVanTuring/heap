@@ -1,6 +1,7 @@
 clone_folder: c:\projects\heap
 image:
 - Visual Studio 2017
+skip_non_tags: true
 configuration:
 - Release
 platform:

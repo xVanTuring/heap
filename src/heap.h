@@ -25,21 +25,23 @@
  *====================================================================*/
 #ifndef HEAP_H
 #define HEAP_H
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "utils.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-#define SWAP_ITEMS(i, j)       { void *tempitem = heap->array[(i)]; \
-                                 heap->array[(i)] = heap->array[(j)]; \
-                                 heap->array[(j)] = tempitem; }
+#define SWAP_ITEMS(i, j)                                                       \
+  {                                                                            \
+    void *tempitem = heap->array[(i)];                                         \
+    heap->array[(i)] = heap->array[(j)];                                       \
+    heap->array[(j)] = tempitem;                                               \
+  }
 
-struct Heap
-{
-	size_t nalloc;
-	size_t n;
-	void** array;
-	int direction;
+struct Heap {
+  size_t nalloc;
+  size_t n;
+  void **array;
+  int direction;
 };
 
 typedef struct Heap HEAP;
@@ -48,23 +50,23 @@ static const int MIN_BUFFER_SIZE = 20;
 extern "C" {
 #endif // __cplusplus
 
-extern HEAP* heap_create(int nalloc, int direction);
+extern HEAP *heap_create(int nalloc, int direction);
 
-extern void heap_destroy(HEAP** pheap, const int freeflag);
+extern void heap_destroy(HEAP **pheap, const int freeflag);
 
-extern int heap_add(HEAP* heap, void* item);
+extern int heap_add(HEAP *heap, void *item);
 
-extern void* heap_remove(HEAP* heap);
+extern void *heap_remove(HEAP *heap);
 
-extern int heap_swap_up(HEAP* heap, size_t index);
+extern int heap_swap_up(HEAP *heap, size_t index);
 
-extern int heap_swap_down(HEAP* heap);
+extern int heap_swap_down(HEAP *heap);
 
-extern size_t heap_get_count(HEAP* heap);
+extern size_t heap_get_count(HEAP *heap);
 
-extern int heap_sort(HEAP* heap);
+extern int heap_sort(HEAP *heap);
 
-extern int heap_sort_strict_order(HEAP* heap);
+extern int heap_sort_strict_order(HEAP *heap);
 
 #ifdef __cplusplus
 }
